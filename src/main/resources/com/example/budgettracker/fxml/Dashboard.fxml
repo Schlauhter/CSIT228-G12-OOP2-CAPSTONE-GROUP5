@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.budgettracker.controller.DashboardController"
+      spacing="20"
+      alignment="CENTER"
+      style="-fx-background-color: #F5F7FA; -fx-padding: 40;">
+
+    <Label fx:id="lblWelcome" text="Welcome!"
+           style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #2196F3;"/>
+
+    <VBox spacing="15" alignment="CENTER">
+        <Button text="💰  Set / View Budget" onAction="#openBudget"
+                prefWidth="280" prefHeight="55"
+                style="-fx-background-color: #2196F3; -fx-text-fill: white;
+                       -fx-font-size: 15; -fx-font-weight: bold;
+                       -fx-background-radius: 15; -fx-cursor: hand;"/>
+
+        <Button text="📋  Manage Expenses" onAction="#openExpenses"
+                prefWidth="280" prefHeight="55"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white;
+                       -fx-font-size: 15; -fx-font-weight: bold;
+                       -fx-background-radius: 15; -fx-cursor: hand;"/>
+
+        <Button text="📊  View Reports" onAction="#openReport"
+                prefWidth="280" prefHeight="55"
+                style="-fx-background-color: #FF9800; -fx-text-fill: white;
+                       -fx-font-size: 15; -fx-font-weight: bold;
+                       -fx-background-radius: 15; -fx-cursor: hand;"/>
+    </VBox>
+
+    <Button text="Logout" onAction="#handleLogout"
+            style="-fx-background-color: transparent; -fx-text-fill: #F44336;
+                   -fx-font-size: 13; -fx-font-weight: bold;
+                   -fx-border-color: transparent; -fx-cursor: hand;"/>
+</VBox>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.budgettracker.controller.ReportController"
+      spacing="15"
+      style="-fx-background-color: #F5F7FA; -fx-padding: 20;">
+
+    <Label text="Spending Report" alignment="CENTER" maxWidth="Infinity"
+           style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #2196F3;"/>
+
+    <!-- Summary Section -->
+    <VBox spacing="8" alignment="CENTER"
+          style="-fx-background-color: white; -fx-padding: 15;
+                 -fx-border-color: #E0E0E0; -fx-border-radius: 8;
+                 -fx-background-radius: 8;">
+
+        <Label text="Summary"
+               style="-fx-font-weight: bold; -fx-font-size: 13; -fx-text-fill: #555;"/>
+
+        <Label fx:id="lblTotalBudget"   text="Total Budget:   Loading..."
+               style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+        <Label fx:id="lblTotalExpenses" text="Total Expenses: Loading..."
+               style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+        <Label fx:id="lblRemaining"     text="Remaining:      Loading..."
+               style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+        <Label fx:id="lblAlert"         text=" "
+               style="-fx-font-size: 13; -fx-font-weight: bold;"/>
+    </VBox>
+
+    <!-- Breakdown Section -->
+    <VBox spacing="10" VBox.vgrow="ALWAYS"
+          style="-fx-background-color: white; -fx-padding: 15;
+                 -fx-border-color: #E0E0E0; -fx-border-radius: 8;
+                 -fx-background-radius: 8;">
+
+        <Label text="Spending Breakdown"
+               style="-fx-font-weight: bold; -fx-font-size: 13; -fx-text-fill: #555;"/>
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="View by:"/>
+            <ComboBox fx:id="cboBreakdown" prefWidth="120"/>
+            <Button text="Load" onAction="#loadBreakdown"
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white;
+                           -fx-background-radius: 6; -fx-cursor: hand;"/>
+        </HBox>
+
+        <TableView fx:id="tableBreakdown" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colPeriod" text="Period"           prefWidth="200"/>
+                <TableColumn fx:id="colTotal"  text="Total Spent (PHP)" prefWidth="200"/>
+            </columns>
+        </TableView>
+    </VBox>
+
+    <Button text="Back to Dashboard" onAction="#goBack"
+            style="-fx-background-color: transparent; -fx-text-fill: #2196F3;
+                   -fx-border-color: transparent; -fx-cursor: hand;"/>
+</VBox>

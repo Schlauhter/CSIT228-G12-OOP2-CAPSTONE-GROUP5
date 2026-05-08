@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.budgettracker.controller.ExpenseController"
+            style="-fx-background-color: #F5F7FA; -fx-padding: 15;">
+
+    <!-- TOP TITLE -->
+    <top>
+        <Label text="Expense Manager" alignment="CENTER"
+               maxWidth="Infinity"
+               style="-fx-font-size: 20; -fx-font-weight: bold;
+                      -fx-text-fill: #2196F3; -fx-padding: 0 0 10 0;"/>
+    </top>
+
+    <!-- LEFT FORM PANEL -->
+    <left>
+        <VBox spacing="10" prefWidth="260"
+              style="-fx-background-color: white; -fx-padding: 15;
+                     -fx-border-color: #E0E0E0; -fx-border-radius: 8;
+                     -fx-background-radius: 8;">
+
+            <Label text="Add / Edit Expense"
+                   style="-fx-font-weight: bold; -fx-font-size: 13; -fx-text-fill: #555;"/>
+
+            <GridPane hgap="8" vgap="10">
+                <Label text="Category:"          GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtCategory"   GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="140"/>
+
+                <Label text="Description:"       GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtDescription" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="140"/>
+
+                <Label text="Amount (PHP):"      GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtAmount"     GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="140"/>
+
+                <Label text="Date (YYYY-MM-DD):" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtDate"       GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="140"/>
+            </GridPane>
+
+            <Label fx:id="lblStatus" text=" " style="-fx-font-size: 11;" wrapText="true"/>
+
+            <GridPane hgap="8" vgap="8">
+                <Button text="Add"    onAction="#addExpense"    prefWidth="110"
+                        style="-fx-background-color: #4CAF50; -fx-text-fill: white;
+                               -fx-background-radius: 6; -fx-cursor: hand; -fx-font-weight: bold;"
+                        GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <Button text="Update" onAction="#updateExpense" prefWidth="110"
+                        style="-fx-background-color: #FF9800; -fx-text-fill: white;
+                               -fx-background-radius: 6; -fx-cursor: hand; -fx-font-weight: bold;"
+                        GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Button text="Delete" onAction="#deleteExpense" prefWidth="110"
+                        style="-fx-background-color: #F44336; -fx-text-fill: white;
+                               -fx-background-radius: 6; -fx-cursor: hand; -fx-font-weight: bold;"
+                        GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <Button text="Clear"  onAction="#clearForm"     prefWidth="110"
+                        style="-fx-background-color: #9E9E9E; -fx-text-fill: white;
+                               -fx-background-radius: 6; -fx-cursor: hand; -fx-font-weight: bold;"
+                        GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <Button text="Back to Dashboard" onAction="#goBack"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white;
+                           -fx-background-radius: 6; -fx-cursor: hand; -fx-font-weight: bold;"/>
+        </VBox>
+    </left>
+
+    <!-- CENTER TABLE -->
+    <center>
+        <VBox style="-fx-padding: 0 0 0 15;">
+            <TableView fx:id="tableExpenses" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId"          text="ID"           prefWidth="40"/>
+                    <TableColumn fx:id="colCategory"    text="Category"     prefWidth="110"/>
+                    <TableColumn fx:id="colDescription" text="Description"  prefWidth="150"/>
+                    <TableColumn fx:id="colAmount"      text="Amount (PHP)" prefWidth="110"/>
+                    <TableColumn fx:id="colDate"        text="Date"         prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>
