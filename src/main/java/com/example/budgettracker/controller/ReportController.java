@@ -3,11 +3,14 @@ package com.example.budgettracker.controller;
 import com.example.budgettracker.dao.BudgetDAO;
 import com.example.budgettracker.dao.ExpenseDAO;
 import com.example.budgettracker.util.Session;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -19,24 +22,65 @@ public class ReportController {
     @FXML private Label            lblRemaining;
     @FXML private Label            lblAlert;
     @FXML private ComboBox<String> cboBreakdown;
-    @FXML private TableView<Object[]>         tableBreakdown;
+    @FXML private TableView<Object[]>           tableBreakdown;
     @FXML private TableColumn<Object[], String> colPeriod;
     @FXML private TableColumn<Object[], String> colTotal;
 
     private final BudgetDAO  budgetDAO  = new BudgetDAO();
     private final ExpenseDAO expenseDAO = new ExpenseDAO();
 
+
+    private Timeline autoRefresh;
+    private static final int REFRESH_INTERVAL_SECONDS = 2;
+
     @FXML
     public void initialize() {
         cboBreakdown.getItems().addAll("Daily", "Weekly", "Monthly");
         cboBreakdown.setValue("Monthly");
 
-        colPeriod.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty((String) data.getValue()[0]));
-        colTotal.setCellValueFactory(data  -> new javafx.beans.property.SimpleStringProperty(String.format("%.2f", data.getValue()[1])));
+        colPeriod.setCellValueFactory(data ->
+                new SimpleStringProperty((String) data.getValue()[0]));
+        colTotal.setCellValueFactory(data ->
+                new SimpleStringProperty(String.format("%.2f", data.getValue()[1])));
 
         loadSummary();
         loadBreakdown();
+        startAutoRefresh();
     }
+
+
+
+    private void startAutoRefresh() {
+        autoRefresh = new Timeline(
+                new KeyFrame(Duration.seconds(REFRESH_INTERVAL_SECONDS), e -> refreshAll())
+        );
+        autoRefresh.setCycleCount(Timeline.INDEFINITE);
+        autoRefresh.play();
+
+
+        lblTotalBudget.sceneProperty().addListener((obs, oldScene, newScene) -> {
+            if (newScene != null) {
+                newScene.windowProperty().addListener((o, oldWin, newWin) -> {
+                    if (newWin != null) {
+                        newWin.setOnHiding(event -> stopAutoRefresh());
+                    }
+                });
+            }
+        });
+    }
+
+    private void stopAutoRefresh() {
+        if (autoRefresh != null) {
+            autoRefresh.stop();
+        }
+    }
+
+    private void refreshAll() {
+        loadSummary();
+        loadBreakdown();
+    }
+
+
 
     private void loadSummary() {
         int userId = Session.getCurrentUserId();
@@ -84,6 +128,7 @@ public class ReportController {
 
     @FXML
     private void goBack() {
+        stopAutoRefresh();
         ((Stage) lblTotalBudget.getScene().getWindow()).close();
     }
 }
