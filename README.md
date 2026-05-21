@@ -179,7 +179,7 @@ To add screenshots:
 
 ## Authors
 
-> *(KEITH ALLEN LARIEGO)*
+> *KEITH ALLEN LARIEGO*
 
 - **Keith Allen A. Lariego** — Role
 - **Miguel Carlos Sibi** — Role
