@@ -1,4 +1,4 @@
-# 💰 Budget Tracker
+# <img width="512" height="512" alt="budget" src="https://github.com/user-attachments/assets/cdad500d-0119-4478-ba90-1b31b01cd166" /> Budget Tracker
 
 A personal finance desktop application built with **JavaFX** and **MySQL**, designed to help users manage their budget, track expenses, and generate spending reports — all from a clean, user-friendly interface.
 
