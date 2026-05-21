@@ -1,15 +1,3 @@
-**MEMBERS**
-
-Keith Allen A. Lariego
-
-Miguel Carlos Sibi
-
-Akshey Luke F. Gallardo
-
-Prince Kenn P. Sorita
-
-Joshua Dave G. Abella
-
 # 💰 Budget Tracker
 
 A personal finance desktop application built with **JavaFX** and **MySQL**, designed to help users manage their budget, track expenses, and generate spending reports — all from a clean, user-friendly interface.
@@ -126,50 +114,13 @@ src/
 
 > **Requirement:** [XAMPP](https://www.apachefriends.org/) must be installed with **MySQL** running.
 
-### 1. Start XAMPP
-Open XAMPP Control Panel and start the **MySQL** module.
+The SQL file is already included in the project under `src/`. Simply import it into your local MySQL server:
 
-### 2. Open phpMyAdmin
-Go to `http://localhost/phpmyadmin` in your browser.
+1. Open XAMPP Control Panel and start the **MySQL** module.
+2. Go to `http://localhost/phpmyadmin` in your browser.
+3. Click **Import**, select the `.sql` file found in the `src/` folder, and click **Go**.
 
-### 3. Create the Database
-Click **New** and create a database named:
-```
-budget_tracker_db
-```
-
-### 4. Run the following SQL to create the tables:
-
-```sql
-USE budget_tracker_db;
-
-CREATE TABLE users (
-    user_id   INT AUTO_INCREMENT PRIMARY KEY,
-    username  VARCHAR(50)  NOT NULL UNIQUE,
-    password  VARCHAR(255) NOT NULL,
-    email     VARCHAR(100) NOT NULL
-);
-
-CREATE TABLE budgets (
-    budget_id   INT AUTO_INCREMENT PRIMARY KEY,
-    user_id     INT            NOT NULL,
-    amount      DECIMAL(10, 2) NOT NULL,
-    period_type VARCHAR(20)    NOT NULL,
-    start_date  DATE           NOT NULL,
-    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
-);
-
-CREATE TABLE expenses (
-    expense_id   INT AUTO_INCREMENT PRIMARY KEY,
-    user_id      INT            NOT NULL,
-    category     VARCHAR(100)   NOT NULL,
-    description  VARCHAR(255),
-    amount       DECIMAL(10, 2) NOT NULL,
-    expense_date DATE           NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
-);
-```
+That's it — the database and all tables will be created automatically.
 
 ---
 
@@ -189,7 +140,7 @@ CREATE TABLE expenses (
    cd budget-tracker
    ```
 
-2. **Set up the database** following the [Database Setup](#database-setup) section above.
+2. **Import the database** following the [Database Setup](#database-setup) section above.
 
 3. **Open the project** in IntelliJ IDEA or your preferred Java IDE.
 
@@ -228,13 +179,14 @@ To add screenshots:
 
 ## Authors
 
-> *(Add your names and student IDs here)*
+> *(KEITH ALLEN LARIEGO)*
 
-- **Name** — Role
-- **Name** — Role
+- **Keith Allen A. Lariego** — Role
+- **Miguel Carlos Sibi** — Role
+- **Prince Kenn P. Sorita** — Role
+- **Akshey Luke F. Gallardo** — Role
+- **Joshua Dave G. Abella** — Role
 
 ---
 
-*Capstone Project — [Your Course Name] | [Your School] | [Year]*
-
-
+*Capstone Project — [CSIT228] | [5/22/2026]*
