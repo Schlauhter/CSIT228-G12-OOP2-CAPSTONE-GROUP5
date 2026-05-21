@@ -161,13 +161,11 @@ That's it — the database and all tables will be created automatically.
 
 ## Authors
 
-> *KEITH ALLEN LARIEGO*
-
-- **Keith Allen A. Lariego** — Role
-- **Miguel Carlos Sibi** — Role
-- **Prince Kenn P. Sorita** — Role
-- **Akshey Luke F. Gallardo** — Role
-- **Joshua Dave G. Abella** — Role
+- **Keith Allen A. Lariego** 
+- **Miguel Carlos Sibi** 
+- **Prince Kenn P. Sorita** 
+- **Akshey Luke F. Gallardo** 
+- **Joshua Dave G. Abella** 
 
 ---
 
