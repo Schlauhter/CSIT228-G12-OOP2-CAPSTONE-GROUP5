@@ -12,7 +12,7 @@ A personal finance desktop application built with **JavaFX** and **MySQL**, desi
 - [Project Structure](#project-structure)
 - [Database Setup](#database-setup)
 - [How to Run](#how-to-run)
-- [Screenshots](#screenshots)
+- [Authors](#Authors)
 
 ---
 
@@ -72,7 +72,7 @@ The application connects to a **local MySQL database** via XAMPP and uses JDBC w
 | Database | MySQL (via XAMPP) |
 | DB Driver | MySQL Connector/J (JDBC) |
 | Architecture | MVC + DAO Pattern |
-| IDE | IntelliJ IDEA / NetBeans |
+| IDE | IntelliJ IDEA |
 
 ---
 
@@ -156,24 +156,6 @@ That's it — the database and all tables will be created automatically.
 6. **Run `Main.java`** — the Login screen will appear.
 
 > ⚠️ If you see `"DB Error - Is XAMPP MySQL running?"`, make sure the MySQL module is active in XAMPP before launching the app.
-
----
-
-## Screenshots
-
-> *(Add screenshots of your Login, Dashboard, Expense Manager, and Report screens here)*
-
-To add screenshots:
-1. Take a screenshot of each screen
-2. Save them in a `/screenshots` folder in the repo
-3. Reference them like this:
-
-```markdown
-![Login Screen](screenshots/login.png)
-![Dashboard](screenshots/dashboard.png)
-![Expense Manager](screenshots/expenses.png)
-![Report](screenshots/report.png)
-```
 
 ---
 
