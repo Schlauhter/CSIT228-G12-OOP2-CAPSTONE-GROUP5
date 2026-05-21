@@ -10,7 +10,6 @@ A personal finance desktop application built with **JavaFX** and **MySQL**, desi
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
-- [Database Setup](#database-setup)
 - [How to Run](#how-to-run)
 - [Authors](#Authors)
 
@@ -132,32 +131,6 @@ That's it — the database and all tables will be created automatically.
 - MySQL Connector/J JAR added to project libraries
 - XAMPP with MySQL running
 
-### Steps
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/budget-tracker.git
-   cd budget-tracker
-   ```
-
-2. **Import the database** following the [Database Setup](#database-setup) section above.
-
-3. **Open the project** in IntelliJ IDEA or your preferred Java IDE.
-
-4. **Add dependencies** to your project libraries:
-   - JavaFX SDK modules (`javafx.controls`, `javafx.fxml`)
-   - `mysql-connector-j` JAR file
-
-5. **Configure VM options** for JavaFX (in Run Configuration):
-   ```
-   --module-path /path/to/javafx-sdk/lib --add-modules javafx.controls,javafx.fxml
-   ```
-
-6. **Run `Main.java`** — the Login screen will appear.
-
-> ⚠️ If you see `"DB Error - Is XAMPP MySQL running?"`, make sure the MySQL module is active in XAMPP before launching the app.
-
----
 
 ## Authors
 
